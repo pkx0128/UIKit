@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,19 @@ class ViewController: UIViewController {
         //设置背景颜色
         myTextField.backgroundColor = UIColor.darkGray
         
+        //设置代理
+        myTextField.delegate = self
+        
         //增加到视图
         view.addSubview(myTextField)
+    }
+    
+    /// 设置返回按钮
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        view.endEditing(true)
+        return true
+        
     }
 
     override func didReceiveMemoryWarning() {
