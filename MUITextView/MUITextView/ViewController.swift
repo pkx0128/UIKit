@@ -9,11 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var myUITextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //创建UITextView
-        let myUITextView = UITextView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        myUITextView = UITextView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         
         //设置位置屏幕中心
         myUITextView.center = view.center
@@ -56,12 +58,23 @@ class ViewController: UIViewController {
         //添加UITextView到视图
         view.addSubview(myUITextView)
         
+        //创建手势
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hidkeybord))
+        
+        //添加手势
+        view.addGestureRecognizer(tap)
         
     }
+    
+    func hidkeybord(){
+        myUITextView.resignFirstResponder()
+    }
+    
     //发送邮件
     func setMail() {
         print("setMail")
     }
+    
     //发送微信
     func setWechat() {
         print("setWechat")
