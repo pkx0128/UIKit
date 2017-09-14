@@ -45,9 +45,26 @@ class ViewController: UIViewController {
         //设置内容是否可以选取
         myUITextView.isSelectable = true
         
+        //创建菜单项目
+        let setMail = UIMenuItem(title: "邮件", action: #selector(ViewController.setMail))
+        let setWeChat = UIMenuItem(title: "微信", action: #selector(ViewController.setWechat))
+        
+        //调用菜单的单例并增加新菜单项到菜单中
+        let menu = UIMenuController.shared
+        menu.menuItems = [setMail,setWeChat]
+        
+        //添加UITextView到视图
         view.addSubview(myUITextView)
         
         
+    }
+    //发送邮件
+    func setMail() {
+        print("setMail")
+    }
+    //发送微信
+    func setWechat() {
+        print("setWechat")
     }
 
     override func didReceiveMemoryWarning() {
