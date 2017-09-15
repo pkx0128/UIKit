@@ -66,6 +66,7 @@ class ViewController: UIViewController {
         
     }
     
+    //隐藏键盘
     func hidkeybord(){
         myUITextView.resignFirstResponder()
     }
