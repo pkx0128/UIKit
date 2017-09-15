@@ -24,7 +24,23 @@ class ViewController: UIViewController {
         bnt2.center = CGPoint(x: view.bounds.width * 0.9, y: view.bounds.height * 0.5)
         view.addSubview(bnt2)
         
+        //创建自定义UIButton
+        let bnt = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        //设置位置
+        bnt.center = view.center
+        //设置标题
+        bnt.setTitle("自定义", for: .normal)
+        //设置背景颜色
+        bnt.backgroundColor = UIColor.blue
+        //添加事件
+        bnt.addTarget(self, action: #selector(clickBnt), for: .touchUpInside)
         
+        view.addSubview(bnt)
+    }
+    
+    //按钮的
+    func clickBnt() {
+        print(#function)
     }
 
     override func didReceiveMemoryWarning() {
