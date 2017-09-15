@@ -36,6 +36,17 @@ class ViewController: UIViewController {
         bnt2.addTarget(self, action: #selector(sentIint), for: .touchUpInside)
         view.addSubview(bnt2)
         
+        //创建删除按钮
+        let bnt3 = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        //设置按钮位置
+        bnt3.center = CGPoint(x: view.bounds.width * 0.5, y: view.bounds.height * 0.5)
+        //设置按钮标题
+        bnt3.setTitle("删除", for: .normal)
+        //设置字体颜色
+        bnt3.setTitleColor(UIColor.red, for: .normal)
+        //添加按钮事件
+        bnt3.addTarget(self, action: #selector(delInit), for: .touchUpInside)
+        view.addSubview(bnt3)
     }
     
     //提示按钮事件方法
@@ -71,6 +82,27 @@ class ViewController: UIViewController {
         alert2.addAction(canBnt)
         //显示提示框
         self.present(alert2, animated: true, completion: nil)
+    }
+    
+    //删除按钮事件方法
+    func delInit() {
+        
+        //创建提示框
+        let alert3 = UIAlertController(title: "提示", message: "你确定删除吗？", preferredStyle: .alert)
+        //创建提示框删除按钮
+        let delBnt = UIAlertAction(title: "删除", style: .destructive) { (UIAlertAction) in
+            print("delBnt")
+        }
+        //创建提示框取消按钮
+        let canBnt = UIAlertAction(title: "取消", style: .cancel) { (UIAlertAction) in
+            print("canBnt")
+        }
+        //添加删除按钮到提示框
+        alert3.addAction(delBnt)
+        //添加取消按钮到提示框
+        alert3.addAction(canBnt)
+        //显示提示框
+        self.present(alert3, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
