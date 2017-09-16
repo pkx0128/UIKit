@@ -59,6 +59,18 @@ class ViewController: UIViewController {
         //添加按钮事件
         bnt4.addTarget(self, action: #selector(loginInit), for: .touchUpInside)
         view.addSubview(bnt4)
+        
+        //创建底弹按钮
+        let bnt5 = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        //设置按钮位置
+        bnt5.center = CGPoint(x: view.bounds.width * 0.5, y: view.bounds.height * 0.7)
+        //设置按钮标题
+        bnt5.setTitle("底弹", for: .normal)
+        //设置标题颜色
+        bnt5.setTitleColor(UIColor.red, for: .normal)
+        //添加按钮事件
+        bnt5.addTarget(self, action: #selector(bottomInit), for: .touchUpInside)
+        view.addSubview(bnt5)
     }
     
     //提示按钮事件方法
@@ -96,7 +108,7 @@ class ViewController: UIViewController {
         self.present(alert2, animated: true, completion: nil)
     }
     
-    //删除按钮事件方法
+    ///删除按钮事件方法
     func delInit() {
         
         //创建提示框
@@ -117,6 +129,8 @@ class ViewController: UIViewController {
         self.present(alert3, animated: true, completion: nil)
     }
     
+    
+    /// 登录按钮事件方法
     func loginInit() {
         //创建提示框控制器
         let loginAlert = UIAlertController(title: "登录", message: nil, preferredStyle: .alert)
@@ -133,7 +147,7 @@ class ViewController: UIViewController {
         }
         //创建登录按钮
         let loginAction = UIAlertAction(title: "登录", style: .default) { (UIAlertAction) in
-            print("请求登录")
+            print("请求登录，用户名为)")
         }
         //创建取消按钮
         let canAction = UIAlertAction(title: "取消", style: .cancel) { (UIAlertAction) in
@@ -145,6 +159,24 @@ class ViewController: UIViewController {
         
         //显示提示框
         self.present(loginAlert, animated: true, completion: nil)
+    }
+    
+    ///底部弹框按钮事件方法
+    func bottomInit() {
+        //创建提示框
+        let bottomAlert = UIAlertController(title: "提示", message: "这个一个底部弹出框", preferredStyle: .actionSheet)
+        //创建确定按钮
+        let okAction = UIAlertAction(title: "确定", style: .default) { (UIAlertAction) in
+            print("okAction")
+        }
+        //创建取消按钮
+        let canAction = UIAlertAction(title: "取消", style: .cancel) { (UIAlertAction) in
+            print("cancel")
+        }
+        //添加按钮到提示框
+        bottomAlert.addAction(okAction)
+        bottomAlert.addAction(canAction)
+        self.present(bottomAlert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
