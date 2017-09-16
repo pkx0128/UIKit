@@ -47,6 +47,18 @@ class ViewController: UIViewController {
         //添加按钮事件
         bnt3.addTarget(self, action: #selector(delInit), for: .touchUpInside)
         view.addSubview(bnt3)
+        
+        //创建有登录按钮
+        let bnt4 = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        //设置按钮位置
+        bnt4.center = CGPoint(x: view.bounds.width * 0.5, y: view.bounds.height * 0.6)
+        //设置按钮标题
+        bnt4.setTitle("登录", for: .normal)
+        //设置标题颜色
+        bnt4.setTitleColor(UIColor.red, for: .normal)
+        //添加按钮事件
+        bnt4.addTarget(self, action: #selector(loginInit), for: .touchUpInside)
+        view.addSubview(bnt4)
     }
     
     //提示按钮事件方法
@@ -103,6 +115,36 @@ class ViewController: UIViewController {
         alert3.addAction(canBnt)
         //显示提示框
         self.present(alert3, animated: true, completion: nil)
+    }
+    
+    func loginInit() {
+        //创建提示框控制器
+        let loginAlert = UIAlertController(title: "登录", message: nil, preferredStyle: .alert)
+        //添加用户名输入框到控制器
+        loginAlert.addTextField { (UITextField) in
+            UITextField.placeholder = "请输入用户名"
+            UITextField.borderStyle = .roundedRect
+        }
+        //添加密码输入框到控制器
+        loginAlert.addTextField { (UITextField) in
+            UITextField.placeholder = "请输入密码"
+            UITextField.isSecureTextEntry = true
+            UITextField.borderStyle = .roundedRect
+        }
+        //创建登录按钮
+        let loginAction = UIAlertAction(title: "登录", style: .default) { (UIAlertAction) in
+            print("请求登录")
+        }
+        //创建取消按钮
+        let canAction = UIAlertAction(title: "取消", style: .cancel) { (UIAlertAction) in
+            print("取消登录")
+        }
+        //添加按钮到提示框
+        loginAlert.addAction(loginAction)
+        loginAlert.addAction(canAction)
+        
+        //显示提示框
+        self.present(loginAlert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
