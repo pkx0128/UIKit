@@ -52,10 +52,9 @@ class ViewController: UIViewController {
         //设置myLabel的内容
         myLabel.text = formar.string(from: myDatePicker.date)
         view.addSubview(myLabel)
-    
         
     }
-    
+    //选取日期事件方法
     func changeDate(p:UIDatePicker){
         myLabel.text = formar.string(from: p.date)
     }
