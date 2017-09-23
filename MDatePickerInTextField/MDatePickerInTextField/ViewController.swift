@@ -44,6 +44,15 @@ class ViewController: UIViewController {
         mytext.text = format.string(from: Date())
         view.addSubview(mytext)
         
+        //添加手势
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapkey))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+    }
+    //隐藏inputView方法
+    func tapkey() {
+        mytext.resignFirstResponder()
     }
     
     //选取值相关方法
