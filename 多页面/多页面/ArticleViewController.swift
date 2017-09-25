@@ -12,10 +12,20 @@ class ArticleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.orange
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        button.center = view.center
+        button.setTitle("goBack", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(goback), for: .touchUpInside)
+        view.addSubview(button)
     }
 
+    @objc func goback() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
