@@ -21,6 +21,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //set delegate and dataSource
         mytableview.dataSource = self
         mytableview.delegate = self
+        //set separatorStyle
+        mytableview.separatorStyle = .singleLine
+        
         //add to view
         view.addSubview(mytableview)
     }
