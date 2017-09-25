@@ -43,6 +43,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         //set cell.text value
         cell.textLabel?.text = info[indexPath.section][indexPath.row]
+        //set the cell accessoryType
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     //set section title
