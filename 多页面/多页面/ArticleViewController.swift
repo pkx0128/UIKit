@@ -30,7 +30,7 @@ class ArticleViewController: UIViewController {
     }
     
     @objc func gotoDetail() {
-        self.present(ArticleViewController(), animated: true, completion: nil)
+        self.present(ArticleDetailViewController(), animated: true, completion: nil)
     }
 
     @objc func goback() {
