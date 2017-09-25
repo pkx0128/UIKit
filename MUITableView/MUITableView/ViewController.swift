@@ -45,7 +45,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = info[indexPath.section][indexPath.row]
         return cell
     }
-    
+    //set section title
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        switch section {
+            case 0: return "面向对象"
+            case 1: return "面向过程"
+            default: return ""
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
