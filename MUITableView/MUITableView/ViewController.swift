@@ -44,7 +44,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //set cell.text value
         cell.textLabel?.text = info[indexPath.section][indexPath.row]
         //set the cell accessoryType
-        cell.accessoryType = .disclosureIndicator
+        if indexPath.section == 0 {
+            //set detailButton
+            cell.accessoryType = .detailButton
+        }
         return cell
     }
     //set section title
@@ -60,6 +63,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //set the selected method
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected \(info[indexPath.section][indexPath.row])")
+    }
+    //set selected detailButton method
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        print("You selected detail cell")
     }
 
     override func didReceiveMemoryWarning() {
