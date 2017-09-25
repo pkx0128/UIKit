@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mytableview.dataSource = self
         mytableview.delegate = self
         //set separatorStyle
-        mytableview.separatorStyle = .singleLine
+        mytableview.separatorStyle = .none
         
         //add to view
         view.addSubview(mytableview)
@@ -54,6 +54,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             default: return ""
         }
         
+    }
+    //set the selected method
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected \(info[indexPath.section][indexPath.row])")
     }
 
     override func didReceiveMemoryWarning() {
