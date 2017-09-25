@@ -68,6 +68,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         print("You selected detail cell")
     }
+    //set the cell height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(40)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
