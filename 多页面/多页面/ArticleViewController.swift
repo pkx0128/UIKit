@@ -20,6 +20,17 @@ class ArticleViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.addTarget(self, action: #selector(goback), for: .touchUpInside)
         view.addSubview(button)
+        
+        let goDetail = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        goDetail.center = CGPoint(x: view.bounds.width * 0.5, y: view.bounds.height * 0.6)
+        goDetail.setTitle("goDetail", for: .normal)
+        goDetail.setTitleColor(UIColor.black, for: .normal)
+        goDetail.addTarget(self, action: #selector(gotoDetail), for: .touchUpInside)
+        view.addSubview(goDetail)
+    }
+    
+    @objc func gotoDetail() {
+        self.present(ArticleViewController(), animated: true, completion: nil)
     }
 
     @objc func goback() {
