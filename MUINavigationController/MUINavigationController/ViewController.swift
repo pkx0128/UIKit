@@ -24,7 +24,8 @@ class ViewController: UIViewController {
         let rightbutton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editSomething))
         navigationItem.rightBarButtonItem = rightbutton
     }
-
+    
+    //FIXME: set the method
     @objc func editSomething() {
         print(#function)
     }
