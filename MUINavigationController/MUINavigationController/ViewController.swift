@@ -25,13 +25,13 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = rightbutton
     }
     
-    //FIXME: set the method
+    //set the transitions
     @objc func editSomething() {
-        print(#function)
+        self.navigationController?.pushViewController(EditViewController(), animated: true)
     }
-    
+    //set the transitions
     @objc func addSomething() {
-        print(#function)
+       self.navigationController?.pushViewController(AddViewController(), animated: true)
     }
     
     override func didReceiveMemoryWarning() {
