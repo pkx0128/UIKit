@@ -14,6 +14,14 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.cyan
         
+        //set the leftbutton
+        let leftbutton = UIBarButtonItem(title: "back", style: .done, target: self, action: #selector(goback))
+        navigationItem.leftBarButtonItem = leftbutton
+    }
+    
+    //set the transitions
+    @objc func goback() {
+        self.navigationController?.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
