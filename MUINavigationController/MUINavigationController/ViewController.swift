@@ -12,9 +12,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        view.backgroundColor = UIColor.white
+        title = "Home"
+        
+        //add leftbutton
+        self.navigationController?.navigationBar.backgroundColor = UIColor.blue
+        let leftbutton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSomething))
+        navigationItem.leftBarButtonItem = leftbutton
     }
 
+   @objc func addSomething() {
+        print(#function)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
