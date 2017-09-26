@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     let info = ["java","C++","C","PHP","swift","Object-c",".net"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        title = "EditTable"
+        view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {

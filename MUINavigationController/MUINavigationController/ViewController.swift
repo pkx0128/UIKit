@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         title = "Home"
         
         //add leftbutton
-        self.navigationController?.navigationBar.backgroundColor = UIColor.blue
+        self.navigationController?.navigationBar.barTintColor = UIColor.blue
         let leftbutton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSomething))
         navigationItem.leftBarButtonItem = leftbutton
         
