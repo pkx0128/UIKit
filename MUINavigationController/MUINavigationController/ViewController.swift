@@ -19,9 +19,17 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor.blue
         let leftbutton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSomething))
         navigationItem.leftBarButtonItem = leftbutton
+        
+        //add rightbutton
+        let rightbutton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editSomething))
+        navigationItem.rightBarButtonItem = rightbutton
     }
 
-   @objc func addSomething() {
+    @objc func editSomething() {
+        print(#function)
+    }
+    
+    @objc func addSomething() {
         print(#function)
     }
     
