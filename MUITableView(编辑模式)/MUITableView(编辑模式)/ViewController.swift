@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     let info = ["java","C++","C","PHP","swift","Object-c",".net"]
     var mytable: UITableView!
+    var leftbutton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -34,7 +35,7 @@ extension ViewController {
     
     func setupNav() {
         navigationController?.navigationBar.barTintColor = UIColor.blue
-        let leftbutton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setEdit))
+        leftbutton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setEdit))
         navigationItem.leftBarButtonItem = leftbutton
     }
     //create tableview
@@ -48,12 +49,17 @@ extension ViewController {
         
     }
     
+    //Two states of the button
     @objc func setEdit() {
-        mytable.isEditing = true
+        if mytable.isEditing {
+            mytable.isEditing = false
+        }else {
+            mytable.isEditing = true
+        }
     }
     
 }
-//MARK: tableview dalegation method
+//MARK: tableview delegation method
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return info.count
@@ -63,6 +69,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = info[indexPath.row]
         return cell
     }
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
 }
 
 
