@@ -80,7 +80,10 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = info[indexPath.row]
         return cell
     }
-
+    //Set the cell edit
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 
 
