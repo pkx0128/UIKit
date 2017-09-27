@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var mytable: UITableView!
     var leftbutton: UIBarButtonItem!
     var rightbutton: UIBarButtonItem!
+    var finishbutton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -39,6 +40,10 @@ extension ViewController {
         //Add leftbutton
         leftbutton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(setEdit))
         navigationItem.leftBarButtonItem = leftbutton
+        
+        //Add finishButton
+        finishbutton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finish))
+        
         //Add rightbutton
         rightbutton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         navigationItem.rightBarButtonItem = rightbutton
@@ -53,19 +58,26 @@ extension ViewController {
         view.addSubview(mytable)
         
     }
-    
+    //add finishbutton event
+    @objc func finish() {
+        print(#function)
+        mytable.setEditing(false, animated: true)
+        rightbutton.isEnabled = true
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.leftBarButtonItem = leftbutton
+    }
+    //Add add event
     @objc func add() {
         print(#function)
     }
     
     //Two states of the button
     @objc func setEdit() {
-        if mytable.isEditing {
-            mytable.isEditing = false
-            rightbutton.isEnabled = true
-        }else {
-            mytable.isEditing = true
+        if !mytable.isEditing {
+            mytable.setEditing(true, animated: true)
             rightbutton.isEnabled = false
+            navigationItem.leftBarButtonItem = nil
+            navigationItem.leftBarButtonItem = finishbutton
         }
     }
     
