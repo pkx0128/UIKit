@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let info = ["java","C++","C","PHP","swift","Object-c",".net"]
+    var info = ["java","C++","C","PHP","swift","Object-c",".net"]
     var mytable: UITableView!
     var leftbutton: UIBarButtonItem!
     var rightbutton: UIBarButtonItem!
@@ -68,7 +68,11 @@ extension ViewController {
     }
     //Add add event
     @objc func add() {
-        print(#function)
+        print("add new row")
+        info.insert("pyhon", at: 0)
+        mytable.beginUpdates()
+        mytable.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+        mytable.endUpdates()
     }
     
     //Two states of the button
