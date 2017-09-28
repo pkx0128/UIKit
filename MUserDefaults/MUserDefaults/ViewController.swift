@@ -41,14 +41,16 @@ extension ViewController {
         upButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         upButton.center = view.center
         upButton.setTitle("UPData", for: .normal)
-        upButton.setTitleColor(UIColor.blue, for: .normal)
+        upButton.setTitleColor(UIColor.black, for: .normal)
+        upButton.backgroundColor = UIColor.blue
         upButton.addTarget(self, action: #selector(upMethod), for: .touchUpInside)
         view.addSubview(upButton)
         
         delButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         delButton.center = CGPoint(x: view.bounds.width * 0.5, y: view.bounds.height * 0.6)
-        delButton.setTitleColor(UIColor.blue, for: .normal)
         delButton.setTitle("DelData", for: .normal)
+        delButton.backgroundColor = UIColor.blue
+        delButton.setTitleColor(UIColor.black, for: .normal)
         delButton.addTarget(self, action: #selector(DelMethod), for: .touchUpInside)
         view.addSubview(delButton)
         
