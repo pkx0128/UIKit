@@ -109,6 +109,14 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
             mytable.endUpdates()
         }
     }
+    //Add the dragging method
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let content = info[sourceIndexPath.row]
+        mytable.beginUpdates()
+        info.remove(at: sourceIndexPath.row)
+        info.insert(content, at: destinationIndexPath.row)
+        mytable.endUpdates()
+    }
     
 }
 
