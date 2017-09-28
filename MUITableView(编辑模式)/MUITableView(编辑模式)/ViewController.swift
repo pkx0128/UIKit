@@ -100,6 +100,16 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    //Set the remove method
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            info.remove(at: indexPath.row)
+            mytable.beginUpdates()
+            mytable.deleteRows(at: [indexPath], with: .fade)
+            mytable.endUpdates()
+        }
+    }
+    
 }
 
 
