@@ -12,14 +12,22 @@ class ViewController: UIViewController {
     var mytext: UITextField!
     var upButton: UIButton!
     var delButton: UIButton!
-
+    var myUserDefault: UserDefaults!
     override func viewDidLoad() {
         super.viewDidLoad()
+        myUserDefault = UserDefaults.standard
+//        myUserDefault.set("Hello", forKey: "Say")
+//        myUserDefault.removeObject(forKey: "Say")
         setupNav()
         setupUI()
     }
 
    @objc func showMyInfo() {
+    if let message = myUserDefault.value(forKey: "MyInput") {
+        print(message)
+    }else {
+        print("No message")
+    }
     
     }
 }
@@ -36,6 +44,7 @@ extension ViewController {
         mytext.center = CGPoint(x: view.bounds.width * 0.5, y: view.bounds.height * 0.3)
         mytext.textAlignment = .center
         mytext.placeholder =  "please inuput"
+        mytext.delegate = self
         view.addSubview(mytext)
         
         upButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
@@ -53,18 +62,25 @@ extension ViewController {
         delButton.setTitleColor(UIColor.black, for: .normal)
         delButton.addTarget(self, action: #selector(DelMethod), for: .touchUpInside)
         view.addSubview(delButton)
-        
     }
     
     @objc func upMethod() {
-        
+        if mytext.text != "" {
+            myUserDefault.set(mytext.text, forKey: "MyInput")
+        }
     }
     
     @objc func DelMethod() {
-        
+        myUserDefault.removeObject(forKey: "MyInput")
     }
 }
-
+//set the delegate and hide the keyborder
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        mytext.resignFirstResponder()
+        return true
+    }
+}
 
 
 
