@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MUITabBarController
+//  MTabBarAndNav
 //
 //  Created by pankx on 2017/9/29.
 //  Copyright © 2017年 pankx. All rights reserved.
@@ -15,17 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        window  = UIWindow(frame: UIScreen.main.bounds)
-        let mytabBar = UITabBarController()
-//        let nav = UINavigationController(rootViewController: mytabBar)
-        let home = HomeViewController()
-        home.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 100)
-        let myview = ViewController()
-        myview.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 200)
-        mytabBar.viewControllers = [home,myview]
-        mytabBar.selectedIndex = 1
-        window?.rootViewController = mytabBar
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        let vc = MainViewController()
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
+        
         return true
     }
 
