@@ -12,7 +12,7 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupChildView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +42,21 @@ extension MainViewController {
         vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.orange], for: .selected)
         let nav = NavViewController(rootViewController: vc)
         return nav
+    }
+    
+    
+    /// 创建子控制器
+    func setupChildView() {
+        let tabArr = [["className":"HomeViewController","title":"首页","image":"tabbar_home","selectedImage":"tabbar_home_selected"],
+                      ["className":"MessageViewController","title":"信息","image":"tabbar_message_center","selectedImage":"tabbar_message_center_selected"],
+                      ["className":"DiscoverViewController","title":"发现","image":"tabbar_discover","selectedImage":"tabbar_discover_selected"],
+                      ["className":"ProfileViewController","title":"我","image":"tabbar_profile","selectedImage":"tabbar_profile_selected"]]
+        
+        var ArrC = [UIViewController]()
+        for nav in tabArr {
+            ArrC.append(control(dit: nav))
+        }
+        viewControllers = ArrC
     }
 
 }
