@@ -12,7 +12,7 @@ class MessageViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor.orange
         // Do any additional setup after loading the view.
     }
 
