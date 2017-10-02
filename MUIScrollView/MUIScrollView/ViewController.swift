@@ -27,6 +27,9 @@ extension ViewController {
         //创建myScroll
         myScroll = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
         myScroll.contentSize = CGSize(width: view.bounds.width * 3, height: view.bounds.height * 2)
+        //设置是否显示水平或垂直滚动条
+        myScroll.showsVerticalScrollIndicator = true
+        myScroll.showsHorizontalScrollIndicator = true
         view.addSubview(myScroll)
     }
 }
