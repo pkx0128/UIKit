@@ -38,6 +38,8 @@ extension ViewController {
         myScroll.isDirectionalLockEnabled = true
         //超过范围时是否有弹回效果
         myScroll.bounces = true
+        //设置ScrollView的偏移量
+        myScroll.contentOffset = CGPoint(x: view.bounds.width * 0.5, y: view.bounds.height * 0.5)
         view.addSubview(myScroll)
     }
 }
