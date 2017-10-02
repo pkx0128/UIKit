@@ -30,6 +30,8 @@ extension ViewController {
         //设置是否显示水平或垂直滚动条
         myScroll.showsVerticalScrollIndicator = true
         myScroll.showsHorizontalScrollIndicator = true
+        //设置滚动条的颜色
+        myScroll.indicatorStyle = .default
         view.addSubview(myScroll)
     }
 }
