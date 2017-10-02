@@ -36,6 +36,8 @@ extension ViewController {
         myScroll.scrollsToTop = true
         //限制只能单个方向滚动
         myScroll.isDirectionalLockEnabled = true
+        //超过范围时是否有弹回效果
+        myScroll.bounces = true
         view.addSubview(myScroll)
     }
 }
