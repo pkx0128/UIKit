@@ -34,6 +34,8 @@ extension ViewController {
         myScroll.indicatorStyle = .default
         //是否可按状态栏回到顶部
         myScroll.scrollsToTop = true
+        //限制只能单个方向滚动
+        myScroll.isDirectionalLockEnabled = true
         view.addSubview(myScroll)
     }
 }
