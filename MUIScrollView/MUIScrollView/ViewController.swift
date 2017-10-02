@@ -32,6 +32,8 @@ extension ViewController {
         myScroll.showsHorizontalScrollIndicator = true
         //设置滚动条的颜色
         myScroll.indicatorStyle = .default
+        //是否可按状态栏回到顶部
+        myScroll.scrollsToTop = true
         view.addSubview(myScroll)
     }
 }
