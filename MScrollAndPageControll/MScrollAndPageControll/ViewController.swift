@@ -29,6 +29,7 @@ extension ViewController: UIScrollViewDelegate {
         myScroll.showsVerticalScrollIndicator = false
         myScroll.delegate = self
         view.addSubview(myScroll)
+        
         for i in 0...4 {
             mylabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 40))
             mylabel.center = CGPoint(x: view.bounds.width * (0.5 + CGFloat(i)), y: view.bounds.height * 0.2)
@@ -37,12 +38,13 @@ extension ViewController: UIScrollViewDelegate {
             myScroll.addSubview(mylabel)
         }
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(#function)
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let p = Int(myScroll.contentOffset.x / myScroll.frame.width)
+        myPage.currentPage = p
     }
     
     func setupPage() {
-        let myPage = UIPageControl(frame: CGRect(x: 0, y: 0, width: view.bounds.width * 0.85 , height: 50))
+        myPage = UIPageControl(frame: CGRect(x: 0, y: 0, width: view.bounds.width * 0.85 , height: 50))
         myPage.center = CGPoint(x: view.bounds.width * 0.5, y: view.bounds.height * 0.9)
         myPage.numberOfPages = 5
         myPage.currentPage = 0
