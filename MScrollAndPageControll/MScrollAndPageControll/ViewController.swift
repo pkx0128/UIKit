@@ -53,7 +53,10 @@ extension ViewController: UIScrollViewDelegate {
         myPage.addTarget(self, action:#selector(pagechange) , for: .valueChanged)
         view.addSubview(myPage)
     }
-    @objc func pagechange() {
-        print(#function)
+    @objc func pagechange(sender: UIPageControl) {
+        var fr = myScroll.frame
+        fr.origin.x = fr.size.width * CGFloat(sender.currentPage)
+        fr.origin.y = 0
+        myScroll.scrollRectToVisible(fr, animated: true)
     }
 }
