@@ -7,12 +7,26 @@
 //
 
 import UIKit
-
+// MARK: UIGestureRecognizer
 class ViewController: UIViewController {
-
+    /// myView
+    var myView: UIView!
+    /// myOtherView
+    var myotherView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // doubleFinger
+        let doubleFinger = UITapGestureRecognizer(target: self , action: #selector(doubleFingerEvent))
+        //number of taps
+        doubleFinger.numberOfTapsRequired = 1
+        //number of fingers
+        doubleFinger.numberOfTouchesRequired = 2
+        view.addGestureRecognizer(doubleFinger)
+    }
+    
+    @objc func doubleFingerEvent(tap: UITapGestureRecognizer) {
+        print(#function)
     }
 
     override func didReceiveMemoryWarning() {
