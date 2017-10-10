@@ -24,9 +24,22 @@ class ViewController: UIViewController {
         doubleFinger.numberOfTouchesRequired = 2
         view.addGestureRecognizer(doubleFinger)
     }
-    
+    //doubleFingerEvent
     @objc func doubleFingerEvent(tap: UITapGestureRecognizer) {
-        print(#function)
+        print(findFingerLocation(recognizer: tap))
+    }
+    
+    ///findFingerLocation
+    ///
+    /// - Parameter recognizer: UITapGestureRecognizer
+    /// - Returns: [CGPoint]
+    func findFingerLocation(recognizer: UITapGestureRecognizer) -> [CGPoint]{
+        let number = recognizer.numberOfTouches
+        var point = [CGPoint]()
+        for i in 0..<number {
+            point.append(recognizer.location(ofTouch: i, in: recognizer.view))
+        }
+        return point
     }
 
     override func didReceiveMemoryWarning() {
