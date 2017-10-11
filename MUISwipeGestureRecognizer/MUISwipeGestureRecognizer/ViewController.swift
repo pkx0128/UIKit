@@ -9,10 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var myView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        myView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        myView.backgroundColor = UIColor.blue
+        view.addSubview(myView)
     }
 
     override func didReceiveMemoryWarning() {
