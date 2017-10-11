@@ -12,7 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressEvent))
+        view.addGestureRecognizer(longpress)
+    }
+    
+   @objc func longPressEvent(longPress: UILongPressGestureRecognizer) {
+        if longPress.state == .began {
+            print("longPress Began")
+        }else if longPress.state == .ended {
+            print("longPress End")
+        }
     }
 
     override func didReceiveMemoryWarning() {
